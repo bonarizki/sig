@@ -13,7 +13,7 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-lg-7">
-                                    <h1 class="display-2 mb-5 animated slideInDown text-white">Organic Food Is Good For Health</h1>
+                                    <h1 class="display-2 mb-5 animated slideInDown text-white">Gereja Advent Hari Ketujuh</h1>
                                     <a href="{{ url('login') }}" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Login</a>
                                     <a href="{{ url('register') }}" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Register</a>
                                 </div>
@@ -27,7 +27,7 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-lg-7">
-                                    <h1 class="display-2 mb-5 animated slideInDown">Natural Food Is Always Healthy</h1>
+                                    <h1 class="display-2 mb-5 animated slideInDown">Gereja Advent Hari Ketujuh</h1>
                                     <a href="{{ url('login') }}" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Login</a>
                                     <a href="{{ url('register') }}" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Register</a>
                                 </div>

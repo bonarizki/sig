@@ -655,23 +655,25 @@
 
         const showParent = (data) => {
             let family = data.family;
-            family.forEach(el => {
-                if (el.parents_gender == 'male') {
-                    $('#name_father').val(el.name);
-                    $('#id_card_father').val(el.id_card);
-                    $('#date_of_birth_father').val(el.date_of_birth);
-                    $('#place_of_birth_father').val(el.place_of_birth);
-                    $('#address_father').val(el.address);
-                    $('#phone_number_father').val(el.phone_number);
-                }else{
-                    $('#name_mother').val(el.name);
-                    $('#id_card_mother').val(el.id_card);
-                    $('#date_of_birth_mother').val(el.date_of_birth);
-                    $('#place_of_birth_mother').val(el.place_of_birth);
-                    $('#address_mother').val(el.address);
-                    $('#phone_number_mother').val(el.phone_number);
-                }
-            });
+            if (family != null) {
+                family.forEach(el => {
+                    if (el.parents_gender == 'male') {
+                        $('#name_father').val(el.name);
+                        $('#id_card_father').val(el.id_card);
+                        $('#date_of_birth_father').val(el.date_of_birth);
+                        $('#place_of_birth_father').val(el.place_of_birth);
+                        $('#address_father').val(el.address);
+                        $('#phone_number_father').val(el.phone_number);
+                    }else{
+                        $('#name_mother').val(el.name);
+                        $('#id_card_mother').val(el.id_card);
+                        $('#date_of_birth_mother').val(el.date_of_birth);
+                        $('#place_of_birth_mother').val(el.place_of_birth);
+                        $('#address_mother').val(el.address);
+                        $('#phone_number_mother').val(el.phone_number);
+                    }
+                });
+            }
         }
 
         const paramsUpdate = (data) => {
