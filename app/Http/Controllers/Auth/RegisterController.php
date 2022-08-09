@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AddParentRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
+use App\Services\AddUpdateUserServices;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -40,13 +44,23 @@ class RegisterController extends Controller
     {
         $request->merge([
             "id_card" => $request->nik,
-            "password" => bcrypt($request->pass)
+            "password" => bcrypt($request->pass),
+            "family_code" => 'FC-'.Str::random(10)
         ]);
         $request->request->remove('nik');
         $request->request->remove('pass');
         $request->request->remove('re_pass');
         $request->request->remove('signup');
         User::create($request->except('_token'));
+        if (Auth::attempt($request->except(['_token','remember']))) {
+            $request->session()->regenerate();
+            if (Auth::user()->role == 'user') {
+                return redirect()->intended('/');
+            }else{
+                return redirect('admin_dashboard');
+            }
+        }
+
         return redirect()->route('login')->with('status', 'Register Success!');
     }
 
@@ -93,5 +107,12 @@ class RegisterController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function AddParent(AddParentRequest $request, AddUpdateUserServices $AddUpdateUserServices)
+    {
+        $AddUpdateUserServices->addParents($request,Auth::user());
+        return redirect()->route('login')->with('status', 'Register Success!');
+
     }
 }

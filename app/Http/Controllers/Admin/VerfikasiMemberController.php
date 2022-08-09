@@ -17,7 +17,8 @@ class VerfikasiMemberController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            return DataTables::of(User::where('status_member','process')
+            return DataTables::of(User::with('Family')
+                    ->where('status_member','process')
                     ->where('role','user')
                 )
                 ->addIndexColumn()

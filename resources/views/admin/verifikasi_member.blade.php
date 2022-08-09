@@ -74,7 +74,14 @@
             {
                 data:"id",
                 name:"id",
-                render : (data) => {
+                render : (data,meta,row) => {
+                    console.log(row.family)
+                    if (row.family.length == 0) {
+                        return `<center>
+                                <span class='bx bxs-lock'></span>
+                            </center>`;
+                    }
+
                     return `<center>
                                 <span class='bx bxs-user-check' onclick="alert('approve','${data}')"></span>
                             </center>`;

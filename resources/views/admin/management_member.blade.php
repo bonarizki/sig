@@ -41,10 +41,11 @@
                                         <th rowspan="2">Place of Birth</th>
                                         <th rowspan="2">Email</th>
                                         <th rowspan="2">Member Status</th>
-                                        <th colspan="3"><center>Option</center></th>
+                                        <th colspan="4"><center>Option</center></th>
                                     </tr>
                                     <tr>
                                         <th>Edit</th>
+                                        <th>View</th>
                                         <th>Delete</th>
                                         <th>Reverse</th>
                                     </tr>
@@ -66,10 +67,11 @@
                                         <th rowspan="2">Place of Birth</th>
                                         <th rowspan="2">Email</th>
                                         <th rowspan="2">Member Status</th>
-                                        <th colspan="3"><center>Option</center></th>
+                                        <th colspan="4"><center>Option</center></th>
                                     </tr>
                                     <tr>
                                         <th>Edit</th>
+                                        <th>View</th>
                                         <th>Delete</th>
                                         <th>Reverse</th>
                                     </tr>
@@ -410,6 +412,39 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modal-view" tabindex="-1" aria-modal="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel3">Detail Family</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>ID Card</th>
+                                    <th>Name</th>
+                                    <th>Date Of Birth</th>
+                                    <th>Place Of Birth</th>
+                                    <th>Phone Number</th>
+                                    <th>Relation Ship</th>
+                                </tr>
+                            </thead>
+                            <tbody id="detail-family">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- / Content -->
 @endsection
@@ -466,9 +501,18 @@
                     {
                         data: "id",
                         name: "id",
-                        render: (data) => {
+                        render: (data,meta,row) => {
                             return `<center>
                                 <span class='bx bxs-user-detail' onclick="showModal('edit','${data}')"></span>
+                            </center>`;
+                        }
+                    },
+                    {
+                        data: "id",
+                        name: "id",
+                        render: (data,meta,row) => {
+                            return `<center>
+                                <span class='bx bxs-show' onclick="view('${data}')"></span>
                             </center>`;
                         }
                     },
@@ -493,12 +537,12 @@
                 ],
                 columnDefs: [
                         {
-                            target: [6,7],
+                            target: [6,7,8],
                             visible: type == 'inactive' ? false : true,
                             searchable: false,
                         },
                         {
-                            target: [8],
+                            target: [9],
                             visible: type == 'inactive' ? true : false,
                             searchable: false,
                         },
@@ -641,6 +685,50 @@
                     errorHandle(res)
                 },
             })
+        }
+
+        const view = (id) => {
+            $.ajax({
+                url : `{{ url('management-member') }}/${id}/edit`,
+                success : (res) => {
+                    let data = res.data;
+                    $('#detail-family').empty();
+                    $('#modal-view').modal('show');
+                    makeDetailFamily(data);
+                },
+                error : (res) => {
+                    errorHandle(res)
+                },
+            })
+        }
+
+        const makeDetailFamily = (data) => {
+            let tbody = `
+                <tr>
+                    <td>${ data.id_card }</td>
+                    <td>${ data.name }</td>
+                    <td>${ data.date_of_birth }</td>
+                    <td>${ data.place_of_birth }</td>
+                    <td>${ data.phone_number }</td>
+                    <td>Son / Daughter</td>
+                </tr>
+            `
+
+            let family = data.family;
+            family.forEach(el => {
+                tbody += `
+                    <tr>
+                        <td>${ el.id_card }</td>
+                        <td>${ el.name }</td>
+                        <td>${ el.date_of_birth }</td>
+                        <td>${ el.place_of_birth }</td>
+                        <td>${ el.phone_number }</td>
+                        <td>${ el.gender == 'male' ? 'Father' : 'Mother'}</td>
+                    </tr>
+                `
+            });
+
+            $('#detail-family').append(tbody)
         }
 
         const showProfilImage = (data) => {

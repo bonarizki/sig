@@ -29,16 +29,16 @@
             </div>
             <div class="row g-4">
                 @foreach ($event as $item)
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <img class="img-fluid" src="img/blog-1.jpg" alt="">
-                    <div class="bg-light p-4">
-                        <a class="d-block h5 lh-base mb-4" href="">{{ $item->event_name }}</a>
-                        <div class="text-muted border-top pt-4">
-                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>Admin</small>
-                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>{{ $item->event_of_date }}</small>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <img class="img-fluid" src="img/blog-1.jpg" alt="">
+                        <div class="bg-light p-4">
+                            <a class="d-block h5 lh-base mb-4" href="{{ url('activity') }}/{{ $item->id }}">{{ $item->event_name }}</a>
+                            <div class="text-muted border-top pt-4">
+                                <small class="me-3"><i class="fa fa-user text-primary me-2"></i>Admin</small>
+                                <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>{{ $item->event_of_date }}</small>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
                 
                 

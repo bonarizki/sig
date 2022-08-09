@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->enum('role',["admin","user"])->default('user');
             $table->enum('status_register',["process","done"])->default('process');
             $table->enum('status_member',["approve","reject","process","inactive"])->default('process');
+            $table->string('family_code');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

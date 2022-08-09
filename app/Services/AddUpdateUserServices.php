@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\User;
 use App\Models\Family; 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class AddUpdateUserServices
 {
@@ -12,7 +13,7 @@ class AddUpdateUserServices
     {
         return DB::transaction(function () use($request){
             $user = $this->addUser($request);
-            $parents = $this->addParents($request,$user->id);
+            $parents = $this->addParents($request,$user);
         });
        
     }
@@ -33,13 +34,14 @@ class AddUpdateUserServices
             "address" => $request->address,
             "password" => bcrypt("defaultPass123"),
             "status_member" => "approve",
-            "image_user" => $image_name == false ? null : $image_name
+            "image_user" => $image_name == false ? null : $image_name,
+            "family_code" => 'FC-'.Str::random(10)
         ];
 
         return User::updateOrCreate(["id" => $request->id],$array);
     }
 
-    public function addParents($request,$id)
+    public function addParents($request,$user)
     {
         $arrayParents = [
             [
@@ -51,7 +53,7 @@ class AddUpdateUserServices
                 "phone_number" => $request->phone_number_father,
                 "address" => $request->address_father,
                 "parents_gender" => "male",
-                "user_id" => $id
+                "user_id" => $user->id
             ],
             [
                 "id" => $request->mother_id,
@@ -62,7 +64,7 @@ class AddUpdateUserServices
                 "phone_number" => $request->phone_number_mother,
                 "address" => $request->address_father,
                 "parents_gender" => "female",
-                "user_id" => $id
+                "user_id" => $user->id
             ],
 
         ];

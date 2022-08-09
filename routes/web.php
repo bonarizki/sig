@@ -29,22 +29,33 @@ use App\Models\Event;
 Route::middleware(['ifauth'])->group(function () {
     Route::get('login', [LoginController::class,'index'])->name('login');
     Route::post('login', [LoginController::class,'authenticate']);
-    Route::resource('register',RegisterController::class);
+    Route::resource('register',RegisterController::class)->except('update');
 });
 
 Route::get('logout', [LoginController::class,'logout']);
 
-Route::get('/',[DashboardController::class,'index'])->name('home');
 
-Route::get('about_us', function () {
-    return view('user.about_us');
+
+Route::get('register-parent',function (){
+    return view('auth.registerParent');
 });
 
-Route::get('activity', function () {
-    $event = Event::paginate(15);
-    return view('user.activity',compact('event'));
-});
+Route::post('add-parent',[RegisterController::class,'AddParent']);
 
+Route::middleware(['auth.register'])->group(function(){
+    Route::get('about_us', function () {
+        return view('user.about_us');
+    });
+    
+    Route::get('activity', function () {
+        $event = Event::paginate(15);
+        return view('user.activity',compact('event'));
+    });
+
+    Route::get('activity/{activity}',[EventController::class,'show']);
+
+    Route::get('/',[DashboardController::class,'index'])->name('home');
+});
 
 //route untuk admin access
 Route::middleware(['auth.admin'])->group(function(){
