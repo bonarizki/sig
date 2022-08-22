@@ -54,6 +54,7 @@ class ManagementMemberRequest extends FormRequest
                 ];
             }
             case 'PUT':
+                
             case 'PATCH':
             {
                 return [
