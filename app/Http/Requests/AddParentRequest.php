@@ -25,16 +25,16 @@ class AddParentRequest extends FormRequest
     {
         return [
             "name_father" => "required|string|min:3",
-            "id_card_father" => "required|numeric|min:16|unique:parents,id_card",
+            "id_card_father" => "required|numeric|min:16|unique:families,id_card",
             "date_of_birth_father" => "required|date",
             "place_of_birth_father" => "required|string|min:4",
-            "phone_number_father" => "required|min:12|numeric|unique:parents,phone_number",
+            "phone_number_father" => "required|min:12|numeric|unique:families,phone_number",
             "address_father" => "required|string",
             "name_mother" => "required|string|min:3",
-            "id_card_mother" => "required|numeric|min:16|unique:parents,id_card",
+            "id_card_mother" => "required|numeric|min:16|unique:families,id_card",
             "date_of_birth_mother" => "required|date",
             "place_of_birth_mother" => "required|string|min:4",
-            "phone_number_mother" => "required|min:12|numeric|unique:parents,phone_number",
+            "phone_number_mother" => "required|min:12|numeric|unique:families,phone_number",
             "address_mother" => "required|string",
         ];
     }

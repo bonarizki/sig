@@ -53,7 +53,7 @@ class AddUpdateUserServices
                 "phone_number" => $request->phone_number_father,
                 "address" => $request->address_father,
                 "parents_gender" => "male",
-                "user_id" => $user->id
+                "user_id" => $user->id,
             ],
             [
                 "id" => $request->mother_id,
@@ -69,8 +69,11 @@ class AddUpdateUserServices
 
         ];
 
-        return Family::upsert($arrayParents,['id']);
-        
+        // foreach ($arrayParents as $parent) {
+        //     return Family::updateOrCreate(["id" => $parent['id']],$parent);
+        // }
+
+        return Family::upsert($arrayParents,['id','id_card']);
     }
 
     public function uploadFile($request)
