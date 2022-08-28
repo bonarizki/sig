@@ -41,7 +41,7 @@
                         </div> --}}
                         <div class="input-group mb-3">
                             <span for="email" class="input-group-text"><i class="zmdi zmdi-account material-icons-name"></i></span>
-                            <input type="text" name="email" id="email" placeholder="Your Email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"/>
+                            <input type="text" name="email" id="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"/>
                             @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}

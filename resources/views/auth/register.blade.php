@@ -30,7 +30,7 @@
                         @csrf
                         <div class="input-group mb-3">
                             <span for="name" class="input-group-text"><i class="zmdi zmdi-account material-icons-name"></i></span>
-                            <input type="text" name="name" id="name" placeholder="Your Name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"/>
+                            <input type="text" name="name" id="name" placeholder="Nama Anda" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"/>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -39,7 +39,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span for="nik" class="input-group-text"><i class="zmdi zmdi-card"></i></span>
-                            <input type="nik" name="nik" id="nik" placeholder="ID Number" class="form-control @error('nik') is-invalid @enderror" value="{{ old('nik') }}"/>
+                            <input type="nik" name="nik" id="nik" placeholder="KTP ID" class="form-control @error('nik') is-invalid @enderror" value="{{ old('nik') }}"/>
                             @error('nik')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -48,7 +48,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span for="date_of_birth" class="input-group-text"><i class="zmdi zmdi-cake"></i></span>
-                            <input type="date_of_birth" name="date_of_birth" id="date_of_birth" placeholder="Date Of Birth" class="form-control @error('date_of_birth') is-invalid @enderror" value="{{ old('date_of_birth') }}"/>
+                            <input type="date_of_birth" name="date_of_birth" id="date_of_birth" placeholder="Tanggal Lahir" class="form-control @error('date_of_birth') is-invalid @enderror" value="{{ old('date_of_birth') }}"/>
                             @error('date_of_birth')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -57,7 +57,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span for="place_of_birth" class="input-group-text"><i class="zmdi zmdi-cake"></i></span>
-                            <input type="place_of_birth" name="place_of_birth" id="place_of_birth" placeholder="Place Of Birth" class="form-control @error('place_of_birth') is-invalid @enderror" value="{{ old('place_of_birth') }}"/>
+                            <input type="place_of_birth" name="place_of_birth" id="place_of_birth" placeholder="Tempat Lahir" class="form-control @error('place_of_birth') is-invalid @enderror" value="{{ old('place_of_birth') }}"/>
                             @error('place_of_birth')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -66,7 +66,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span for="email" class="input-group-text"><i class="zmdi zmdi-email"></i></span>
-                            <input type="email" name="email" id="email" placeholder="Your Email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"/>
+                            <input type="email" name="email" id="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"/>
                             @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}

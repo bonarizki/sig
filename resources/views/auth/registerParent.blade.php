@@ -33,7 +33,7 @@
                                 <div class="input-group mb-3">
                                     <span for="name_father" class="input-group-text"><i
                                             class="zmdi zmdi-account material-icons-name"></i></span>
-                                    <input type="text" name="name_father" id="name_father" placeholder="Father Name"
+                                    <input type="text" name="name_father" id="name_father" placeholder="Nama Ayah"
                                         class="form-control @error('name_father') is-invalid @enderror"
                                         value="{{ old('name_father') }}" />
                                     @error('name_father')
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <span for="id_card_father" class="input-group-text"><i class="zmdi zmdi-card"></i></span>
-                                    <input type="id_card_father" name="id_card_father" id="id_card_father" placeholder="ID Number Father"
+                                    <input type="id_card_father" name="id_card_father" id="id_card_father" placeholder="No. KTP Ayah"
                                         class="form-control @error('id_card_father') is-invalid @enderror" value="{{ old('id_card_father') }}" />
                                     @error('id_card_father')
                                     <div class="invalid-feedback">
@@ -55,7 +55,7 @@
                                 <div class="input-group mb-3">
                                     <span for="date_of_birth_father" class="input-group-text"><i class="zmdi zmdi-cake"></i></span>
                                     <input type="date_of_birth_father" name="date_of_birth_father" id="date_of_birth_father"
-                                        placeholder="Date Of Birth Father"
+                                        placeholder="Tanggal Lahir Ayah"
                                         class="form-control date @error('date_of_birth_father') is-invalid @enderror"
                                         value="{{ old('date_of_birth_father') }}" />
                                     @error('date_of_birth_father')
@@ -68,7 +68,7 @@
                                     <span for="place_of_birth_father" class="input-group-text"><i
                                             class="zmdi zmdi-cake"></i></span>
                                     <input type="place_of_birth_father" name="place_of_birth_father" id="place_of_birth_father"
-                                        placeholder="Place Of Birth Father"
+                                        placeholder="Tempat Lahir Ayah"
                                         class="form-control @error('place_of_birth_father') is-invalid @enderror"
                                         value="{{ old('place_of_birth_father') }}" />
                                     @error('place_of_birth_father')
@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <span for="phone_number_father" class="input-group-text"><i class="zmdi zmdi-phone"></i></span>
-                                    <input type="text" name="phone_number_father" id="phone_number_father" placeholder="Phone Number Father"
+                                    <input type="text" name="phone_number_father" id="phone_number_father" placeholder="Nomor HP Ayah"
                                         class="form-control @error('phone_number_father') is-invalid @enderror"
                                         value="{{ old('phone_number_father') }}" />
                                     @error('phone_number_father')
@@ -92,7 +92,7 @@
                                     <span for="address_father" class="input-group-text"><i class="zmdi zmdi-text"></i></span>
                                     <textarea id="address_father" name="address_father"
                                         class="form-control @error('address_father') is-invalid @enderror"
-                                        placeholder="Address Father"
+                                        placeholder="Alamat Ayah"
                                     ></textarea>
                                     @error('address_father')
                                     <div class="invalid-feedback">
@@ -105,7 +105,7 @@
                                 <div class="input-group mb-3">
                                     <span for="name_mother" class="input-group-text"><i
                                             class="zmdi zmdi-account material-icons-name"></i></span>
-                                    <input type="text" name="name_mother" id="name_mother" placeholder="Mother Name"
+                                    <input type="text" name="name_mother" id="name_mother" placeholder="Nama Ibu"
                                         class="form-control @error('name_mother') is-invalid @enderror"
                                         value="{{ old('name_mother') }}" />
                                     @error('name_mother')
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <span for="id_card_mother" class="input-group-text"><i class="zmdi zmdi-card"></i></span>
-                                    <input type="id_card_mother" name="id_card_mother" id="id_card_mother" placeholder="ID Number Mother"
+                                    <input type="id_card_mother" name="id_card_mother" id="id_card_mother" placeholder="No. KTP Ibu"
                                         class="form-control @error('id_card_mother') is-invalid @enderror" value="{{ old('id_card_mother') }}" />
                                     @error('id_card_mother')
                                     <div class="invalid-feedback">
@@ -127,7 +127,7 @@
                                 <div class="input-group mb-3">
                                     <span for="date_of_birth_mother" class="input-group-text"><i class="zmdi zmdi-cake"></i></span>
                                     <input type="date_of_birth_mother" name="date_of_birth_mother" id="date_of_birth_mother"
-                                        placeholder="Date Of Birth Mother"
+                                        placeholder="Tanggal Lahir Ibu"
                                         class="form-control date @error('date_of_birth_mother') is-invalid @enderror"
                                         value="{{ old('date_of_birth_mother') }}" />
                                     @error('date_of_birth_mother')
@@ -140,7 +140,7 @@
                                     <span for="place_of_birth_mother" class="input-group-text"><i
                                             class="zmdi zmdi-cake"></i></span>
                                     <input type="place_of_birth_mother" name="place_of_birth_mother" id="place_of_birth_mother"
-                                        placeholder="Place Of Birth Mother"
+                                        placeholder="Tempat Lahir Ibu"
                                         class="form-control @error('place_of_birth_mother') is-invalid @enderror"
                                         value="{{ old('place_of_birth_mother') }}" />
                                     @error('place_of_birth_mother')
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <span for="phone_number_mother" class="input-group-text"><i class="zmdi zmdi-phone"></i></span>
-                                    <input type="text" name="phone_number_mother" id="phone_number_mother" placeholder="Phone Number Mother"
+                                    <input type="text" name="phone_number_mother" id="phone_number_mother" placeholder="No. HP Ibu"
                                         class="form-control @error('phone_number_mother') is-invalid @enderror"
                                         value="{{ old('phone_number_mother') }}" />
                                     @error('phone_number_mother')
@@ -164,7 +164,7 @@
                                     <span for="address_mother" class="input-group-text"><i class="zmdi zmdi-text"></i></span>
                                     <textarea id="address_mother" name="address_mother"
                                         class="form-control @error('address_mother') is-invalid @enderror""
-                                        placeholder="Address Mother"
+                                        placeholder="Alamat Ibu"
                                     ></textarea>
                                     @error('address_mother')
                                     <div class="invalid-feedback">
