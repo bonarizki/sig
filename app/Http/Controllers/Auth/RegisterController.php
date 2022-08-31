@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AddParentRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Mail\RegisterMail;
 use App\Models\User;
 use App\Services\AddUpdateUserServices;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class RegisterController extends Controller
@@ -111,7 +113,9 @@ class RegisterController extends Controller
 
     public function AddParent(AddParentRequest $request, AddUpdateUserServices $AddUpdateUserServices)
     {
-        $AddUpdateUserServices->addParents($request,Auth::user());
+        // $AddUpdateUserServices->addParents($request,Auth::user());
+        \Mail::to(['address' => Auth::user()->email])
+            ->send(new RegisterMail(Auth::user()));
         return redirect()->route('login')->with('status', 'Register Success!');
 
     }
