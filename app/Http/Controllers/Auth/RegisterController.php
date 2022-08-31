@@ -113,7 +113,7 @@ class RegisterController extends Controller
 
     public function AddParent(AddParentRequest $request, AddUpdateUserServices $AddUpdateUserServices)
     {
-        // $AddUpdateUserServices->addParents($request,Auth::user());
+        $AddUpdateUserServices->addParents($request,Auth::user());
         \Mail::to(['address' => Auth::user()->email])
             ->send(new RegisterMail(Auth::user()));
         return redirect()->route('login')->with('status', 'Register Success!');
